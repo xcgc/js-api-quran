@@ -14,9 +14,9 @@ interface quran {
 const getQuran = async (req: Request, res: Response, next: NextFunction) => {
     let result: AxiosResponse = await axios.get(`https://doa-doa-api-ahmadramadhan.fly.dev/api`);
     let posts: [quran] = result.data;
-    return res.status(200).json({
-        message: posts
-    });
+    return res.send(JSON.stringify({
+        posts
+    }));
 };
 
 export default { getQuran };
